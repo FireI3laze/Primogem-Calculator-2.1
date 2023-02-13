@@ -1,0 +1,77 @@
+﻿<Window x:Class="Primogem_Calculator.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Primogem_Calculator"
+        mc:Ignorable="d"
+        Title="Calculator" Height="auto" Width="660">
+    
+    <ScrollViewer ScrollViewer.HorizontalScrollBarVisibility="Auto" ScrollViewer.VerticalScrollBarVisibility="Visible">
+        <Grid>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="auto"/>
+                <RowDefinition Height="auto"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="auto"/>
+                <RowDefinition Height="auto"/>
+                <RowDefinition Height="auto"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="auto"/>
+
+                <RowDefinition Height="auto"/>
+                <RowDefinition Height="auto"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="auto"/>
+                <RowDefinition Height="auto"/>
+                <RowDefinition Height="auto"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="auto"/>
+            </Grid.RowDefinitions>
+
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="615"/>
+
+            </Grid.ColumnDefinitions>
+
+
+            <Label Grid.ColumnSpan="4" Grid.Row="0" Grid.Column="0" Content="What do you want to calculate?" FontSize="25" FontWeight="DemiBold" HorizontalContentAlignment="Center" Margin="50, 35, 50, 20"/>
+
+            <Button x:Name="firstCalculation" Click="WishesInTime" Grid.ColumnSpan="5" Grid.RowSpan="1"  Grid.Row="1" Grid.Column="0" Foreground="LightSkyBlue" Background="AliceBlue" FontSize="20" FontWeight="DemiBold" HorizontalContentAlignment="Center" Margin="20, 10, 0, 10">
+                How many Intertwined Fate will I get in a certain amount of time?
+            </Button>
+
+            <Button x:Name="secondCalculation" Click="DoIHaveToPay" Grid.ColumnSpan="5" Grid.Row="2" Grid.Column="0" Foreground="LightSkyBlue" Background="AliceBlue" FontSize="20" FontWeight="DemiBold" HorizontalContentAlignment="Center" Margin="20, 10, 0, 10">
+                How much do I have to additionally pay to get what I want?
+            </Button>
+
+            <Button x:Name="thirdCalculation" Click="Placeholder" Grid.ColumnSpan="5" Grid.Row="3" Grid.Column="0" Foreground="LightSkyBlue" Background="AliceBlue" FontSize="20" FontWeight="DemiBold" HorizontalContentAlignment="Center" Margin="20, 10, 0, 10">
+                coming soon
+            </Button>
+
+
+            <Label x:Name="Disclaimer" Grid.ColumnSpan="5" Grid.Row="5" Grid.Column="0" Foreground="Black" Background="LightGray" FontSize="20" FontWeight="DemiBold" HorizontalContentAlignment="Center" Margin="20, 40, 0, 10">
+                Disclaimer
+            </Label>
+
+            <Label Grid.ColumnSpan="4" x:Name="Solution" Grid.Row="4" Grid.Column="0" Content="" FontSize="20" FontWeight="DemiBold"  Margin="10, 10"/>
+
+            <Rectangle HorizontalAlignment="Stretch" Grid.Column="0" Grid.Row="4" Grid.ColumnSpan="4" Fill="Black" Height="2" VerticalAlignment="Bottom" Margin="10, 0, 10, 10"/>
+
+            <TextBlock x:Name="Answer" Grid.Row="20" Grid.Column="0" FontSize="15" FontWeight="DemiBold" HorizontalAlignment="Center" TextWrapping="Wrap" Margin="20, 20, 0, 40">
+                This calculator is a from Hoyoverse unsupported program which does not use or include any official data. The results are just a guess, calculated according to my personal observation 
+                of how consistant Hoyoverse drops Primogem and Intertwined Fate rewards and from which source. <LineBreak></LineBreak> <LineBreak></LineBreak>
+                I won't be liable for any incorrect information. <LineBreak></LineBreak> <LineBreak></LineBreak>
+                I put my focus on worst case scenarios, so the user will mostlikely end up with more primogems than expected. <LineBreak></LineBreak><LineBreak></LineBreak>
+                The higher the given input is, the more accurate will the calculation be. <LineBreak></LineBreak><LineBreak></LineBreak>
+                Have fun!
+            </TextBlock>
+            
+
+
+        </Grid>
+    </ScrollViewer>
+
+
+
+</Window>
