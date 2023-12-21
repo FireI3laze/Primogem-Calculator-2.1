@@ -21,3 +21,53 @@ C:\Users\Milan\source\repos\Primogem Calculator\Primogem Calculator\obj\Release\
 C:\Users\Milan\source\repos\Primogem Calculator\Primogem Calculator\obj\Release\netcoreapp3.1\Primogem Calculator.pdb
 C:\Users\Milan\source\repos\Primogem Calculator\Primogem Calculator\obj\Release\netcoreapp3.1\Primogem Calculator.genruntimeconfig.cache
 C:\Users\Milan\source\repos\Primogem Calculator\Primogem Calculator\obj\Release\netcoreapp3.1\Primogem Calculator.csproj.ResolveComReference.cache
+C:\Users\Milan\source\Primogem Calculator\Primogem Calculator\bin\Release\netcoreapp3.1\Primogem Calculator.exe
+C:\Users\Milan\source\Primogem Calculator\Primogem Calculator\bin\Release\netcoreapp3.1\Primogem Calculator.deps.json
+C:\Users\Milan\source\Primogem Calculator\Primogem Calculator\bin\Release\netcoreapp3.1\Primogem Calculator.runtimeconfig.json
+C:\Users\Milan\source\Primogem Calculator\Primogem Calculator\bin\Release\netcoreapp3.1\Primogem Calculator.runtimeconfig.dev.json
+C:\Users\Milan\source\Primogem Calculator\Primogem Calculator\bin\Release\netcoreapp3.1\Primogem Calculator.dll
+C:\Users\Milan\source\Primogem Calculator\Primogem Calculator\bin\Release\netcoreapp3.1\Primogem Calculator.pdb
+C:\Users\Milan\source\Primogem Calculator\Primogem Calculator\obj\Release\netcoreapp3.1\Primogem Calculator.csproj.AssemblyReference.cache
+C:\Users\Milan\source\Primogem Calculator\Primogem Calculator\obj\Release\netcoreapp3.1\Primogem Calculator.csproj.ResolveComReference.cache
+C:\Users\Milan\source\Primogem Calculator\Primogem Calculator\obj\Release\netcoreapp3.1\MainWindow.g.cs
+C:\Users\Milan\source\Primogem Calculator\Primogem Calculator\obj\Release\netcoreapp3.1\Window2.g.cs
+C:\Users\Milan\source\Primogem Calculator\Primogem Calculator\obj\Release\netcoreapp3.1\Window3.g.cs
+C:\Users\Milan\source\Primogem Calculator\Primogem Calculator\obj\Release\netcoreapp3.1\App.g.cs
+C:\Users\Milan\source\Primogem Calculator\Primogem Calculator\obj\Release\netcoreapp3.1\Primogem Calculator_MarkupCompile.cache
+C:\Users\Milan\source\Primogem Calculator\Primogem Calculator\obj\Release\netcoreapp3.1\Primogem Calculator_MarkupCompile.lref
+C:\Users\Milan\source\Primogem Calculator\Primogem Calculator\obj\Release\netcoreapp3.1\MainWindow.baml
+C:\Users\Milan\source\Primogem Calculator\Primogem Calculator\obj\Release\netcoreapp3.1\Window2.baml
+C:\Users\Milan\source\Primogem Calculator\Primogem Calculator\obj\Release\netcoreapp3.1\Window3.baml
+C:\Users\Milan\source\Primogem Calculator\Primogem Calculator\obj\Release\netcoreapp3.1\Primogem Calculator.g.resources
+C:\Users\Milan\source\Primogem Calculator\Primogem Calculator\obj\Release\netcoreapp3.1\Primogem Calculator.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\Milan\source\Primogem Calculator\Primogem Calculator\obj\Release\netcoreapp3.1\Primogem Calculator.AssemblyInfoInputs.cache
+C:\Users\Milan\source\Primogem Calculator\Primogem Calculator\obj\Release\netcoreapp3.1\Primogem Calculator.AssemblyInfo.cs
+C:\Users\Milan\source\Primogem Calculator\Primogem Calculator\obj\Release\netcoreapp3.1\Primogem Calculator.csproj.CoreCompileInputs.cache
+C:\Users\Milan\source\Primogem Calculator\Primogem Calculator\obj\Release\netcoreapp3.1\Primogem Calculator.dll
+C:\Users\Milan\source\Primogem Calculator\Primogem Calculator\obj\Release\netcoreapp3.1\Primogem Calculator.pdb
+C:\Users\Milan\source\Primogem Calculator\Primogem Calculator\obj\Release\netcoreapp3.1\Primogem Calculator.genruntimeconfig.cache
+D:\Spiele\Genshin Impact game\Primogem Calculator\Primogem Calculator\Primogem Calculator\bin\Release\netcoreapp3.1\Primogem Calculator.exe
+D:\Spiele\Genshin Impact game\Primogem Calculator\Primogem Calculator\Primogem Calculator\bin\Release\netcoreapp3.1\Primogem Calculator.deps.json
+D:\Spiele\Genshin Impact game\Primogem Calculator\Primogem Calculator\Primogem Calculator\bin\Release\netcoreapp3.1\Primogem Calculator.runtimeconfig.json
+D:\Spiele\Genshin Impact game\Primogem Calculator\Primogem Calculator\Primogem Calculator\bin\Release\netcoreapp3.1\Primogem Calculator.runtimeconfig.dev.json
+D:\Spiele\Genshin Impact game\Primogem Calculator\Primogem Calculator\Primogem Calculator\bin\Release\netcoreapp3.1\Primogem Calculator.dll
+D:\Spiele\Genshin Impact game\Primogem Calculator\Primogem Calculator\Primogem Calculator\bin\Release\netcoreapp3.1\Primogem Calculator.pdb
+D:\Spiele\Genshin Impact game\Primogem Calculator\Primogem Calculator\Primogem Calculator\obj\Release\netcoreapp3.1\Primogem Calculator.csproj.AssemblyReference.cache
+D:\Spiele\Genshin Impact game\Primogem Calculator\Primogem Calculator\Primogem Calculator\obj\Release\netcoreapp3.1\Primogem Calculator.csproj.ResolveComReference.cache
+D:\Spiele\Genshin Impact game\Primogem Calculator\Primogem Calculator\Primogem Calculator\obj\Release\netcoreapp3.1\MainWindow.g.cs
+D:\Spiele\Genshin Impact game\Primogem Calculator\Primogem Calculator\Primogem Calculator\obj\Release\netcoreapp3.1\Window2.g.cs
+D:\Spiele\Genshin Impact game\Primogem Calculator\Primogem Calculator\Primogem Calculator\obj\Release\netcoreapp3.1\Window3.g.cs
+D:\Spiele\Genshin Impact game\Primogem Calculator\Primogem Calculator\Primogem Calculator\obj\Release\netcoreapp3.1\App.g.cs
+D:\Spiele\Genshin Impact game\Primogem Calculator\Primogem Calculator\Primogem Calculator\obj\Release\netcoreapp3.1\Primogem Calculator_MarkupCompile.cache
+D:\Spiele\Genshin Impact game\Primogem Calculator\Primogem Calculator\Primogem Calculator\obj\Release\netcoreapp3.1\Primogem Calculator_MarkupCompile.lref
+D:\Spiele\Genshin Impact game\Primogem Calculator\Primogem Calculator\Primogem Calculator\obj\Release\netcoreapp3.1\MainWindow.baml
+D:\Spiele\Genshin Impact game\Primogem Calculator\Primogem Calculator\Primogem Calculator\obj\Release\netcoreapp3.1\Window2.baml
+D:\Spiele\Genshin Impact game\Primogem Calculator\Primogem Calculator\Primogem Calculator\obj\Release\netcoreapp3.1\Window3.baml
+D:\Spiele\Genshin Impact game\Primogem Calculator\Primogem Calculator\Primogem Calculator\obj\Release\netcoreapp3.1\Primogem Calculator.g.resources
+D:\Spiele\Genshin Impact game\Primogem Calculator\Primogem Calculator\Primogem Calculator\obj\Release\netcoreapp3.1\Primogem Calculator.GeneratedMSBuildEditorConfig.editorconfig
+D:\Spiele\Genshin Impact game\Primogem Calculator\Primogem Calculator\Primogem Calculator\obj\Release\netcoreapp3.1\Primogem Calculator.AssemblyInfoInputs.cache
+D:\Spiele\Genshin Impact game\Primogem Calculator\Primogem Calculator\Primogem Calculator\obj\Release\netcoreapp3.1\Primogem Calculator.AssemblyInfo.cs
+D:\Spiele\Genshin Impact game\Primogem Calculator\Primogem Calculator\Primogem Calculator\obj\Release\netcoreapp3.1\Primogem Calculator.csproj.CoreCompileInputs.cache
+D:\Spiele\Genshin Impact game\Primogem Calculator\Primogem Calculator\Primogem Calculator\obj\Release\netcoreapp3.1\Primogem Calculator.dll
+D:\Spiele\Genshin Impact game\Primogem Calculator\Primogem Calculator\Primogem Calculator\obj\Release\netcoreapp3.1\Primogem Calculator.pdb
+D:\Spiele\Genshin Impact game\Primogem Calculator\Primogem Calculator\Primogem Calculator\obj\Release\netcoreapp3.1\Primogem Calculator.genruntimeconfig.cache

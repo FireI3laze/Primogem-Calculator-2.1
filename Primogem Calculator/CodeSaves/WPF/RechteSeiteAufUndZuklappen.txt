@@ -1,0 +1,12 @@
+<Button x:Name="CloseRight" Click="CRight" Grid.Row="4" Grid.Column="7" Grid.RowSpan="8" FontSize="20" FontWeight="DemiBold" Background="White" Margin="175, 5, 10, 50">
+                <StackPanel>
+                    <Image Source="C:\Users\Milan\source\Primogem Calculator\Primogem Calculator\ProgrammierenBilder\AufklappPfeilLinks.png" Margin="0, 0, 0, 60"/>
+                    <Image Source="C:\Users\Milan\source\Primogem Calculator\Primogem Calculator\ProgrammierenBilder\AufklappPfeilLinks.png" Margin="0, 60, 0, 0"/>
+                </StackPanel>
+            </Button>
+            <Button x:Name="OpenRight" Click="ORight" Grid.Row="4" Grid.Column="5" Grid.RowSpan="8" FontSize="20" FontWeight="DemiBold" Background="White" Margin="225, 5, -40, 50" Visibility="Hidden">
+                <StackPanel>
+                    <Image Source="C:\Users\Milan\source\Primogem Calculator\Primogem Calculator\ProgrammierenBilder\AufklappPfeilRechts.png" Margin="0, 0, 0, 60"/>
+                    <Image Source="C:\Users\Milan\source\Primogem Calculator\Primogem Calculator\ProgrammierenBilder\AufklappPfeilRechts.png" Margin="0, 60, 0, 0"/>
+                </StackPanel>
+            </Button>

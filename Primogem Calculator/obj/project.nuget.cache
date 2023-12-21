@@ -1,8 +1,13 @@
 {
   "version": 2,
-  "dgSpecHash": "rORAC4yklEVD9iOUyhG1YP+qlwuhAdhDItl2cPj3F2etQZdytBTkmzp3KBCuKkeEzcyS894Q0lmPmWpsdjGKAg==",
+  "dgSpecHash": "BAbDem3U9rSgmL61urZlwySP//7K+atBvuTOo8I4PRr6u+gzdw1g4i5dnwUNu9sRwjIu5uoySZSq4eZtnYffcg==",
   "success": true,
-  "projectFilePath": "C:\\Users\\Milan\\source\\repos\\Primogem Calculator\\Primogem Calculator\\Primogem Calculator.csproj",
-  "expectedPackageFiles": [],
+  "projectFilePath": "D:\\Spiele\\Genshin Impact game\\Primogem Calculator\\Primogem Calculator\\Primogem Calculator\\Primogem Calculator.csproj",
+  "expectedPackageFiles": [
+    "C:\\Users\\milan\\.nuget\\packages\\microsoft.windowsdesktop.app.ref\\3.1.0\\microsoft.windowsdesktop.app.ref.3.1.0.nupkg.sha512",
+    "C:\\Users\\milan\\.nuget\\packages\\microsoft.netcore.app.ref\\3.1.0\\microsoft.netcore.app.ref.3.1.0.nupkg.sha512",
+    "C:\\Users\\milan\\.nuget\\packages\\microsoft.aspnetcore.app.ref\\3.1.10\\microsoft.aspnetcore.app.ref.3.1.10.nupkg.sha512",
+    "C:\\Users\\milan\\.nuget\\packages\\microsoft.netcore.app.host.win-x64\\3.1.32\\microsoft.netcore.app.host.win-x64.3.1.32.nupkg.sha512"
+  ],
   "logs": []
 }

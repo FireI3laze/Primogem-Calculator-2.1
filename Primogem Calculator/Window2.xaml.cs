@@ -28,6 +28,7 @@ namespace Primogem_Calculator
             int nHieght = (int)System.Windows.SystemParameters.PrimaryScreenHeight;
 
             this.LayoutTransform = new ScaleTransform(nWidth / 1920, nHieght / 1080);
+            Start();
 
         }
 
@@ -36,11 +37,17 @@ namespace Primogem_Calculator
         bool BP;
         bool Events;
         bool ToggleRefund;
+
         bool AbyssStarsAllowed = false;
+        bool ExplorationInputAllowed = false;
+        bool DaysInputAllowed = false;
+
+        bool HistoryClear;
+
         int inputDays;
         int AbyssStars;
         int ExplorationProgress;
-        int Counter;
+        bool Open = true;
 
 
 
@@ -48,41 +55,111 @@ namespace Primogem_Calculator
 
         public void T1MouseLeave(object sender, RoutedEventArgs e)
         {
-            Counter = Counter + 1;
-            if (Counter >= 3)
-            {
-                Start();
-            }
+
         }
         public void T2MouseLeave(object sender, RoutedEventArgs e)
         {
-            Counter = Counter + 1;
-            if (Counter >= 3)
-            {
-                Start();
-            }
+
         }
         public void B1MouseEnter(object sender, RoutedEventArgs e)
         {
-            Counter = Counter + 1;
-            if (Counter >= 3)
-            {
-                Start();
-            }
+
         }
         public void ButtonEnter(object sender, RoutedEventArgs e)
         {
-            Counter = Counter + 1;
-            if (Counter >= 3)
-            {
-                Start();
-            }
+            Start();
+        }
+
+        #region BothTabs
+
+        public void BPatches(object sender, RoutedEventArgs e)
+        {
+            CurrentPatch.Visibility = Visibility.Visible;
+
+            CdaysGone.Visibility = Visibility.Visible;
+            CdaysLeft.Visibility = Visibility.Visible;
+            CBanner.Visibility = Visibility.Visible;
+
+            NPatch.Visibility = Visibility.Visible;
+            FirstHalf.Visibility = Visibility.Visible;
+            SecondHalf.Visibility = Visibility.Visible;
+
+            NNPatch.Visibility = Visibility.Visible;
+            NFirstHalf.Visibility = Visibility.Visible;
+            NSecondHalf.Visibility = Visibility.Visible;
+
+            NNNPatch.Visibility = Visibility.Visible;
+            NNFirstHalf.Visibility = Visibility.Visible;
+            NNSecondHalf.Visibility = Visibility.Visible;
+
+            RH1.Visibility = Visibility.Hidden;
+            RH2.Visibility = Visibility.Visible;
+
+            Last10Inputs.Visibility = Visibility.Hidden;
+            History.Visibility = Visibility.Hidden;
+            ClearHistory.Visibility = Visibility.Hidden;
+
+            SomeUpcomingPatches.Foreground = Brushes.Black;
+            SomeUpcomingPatches.Background = Brushes.LightGray;
+            SomeUpcomingPatches.IsEnabled = false;
+
+            HHistory.Foreground = Brushes.LightSkyBlue;
+            HHistory.Background = Brushes.AliceBlue;
+            HHistory.IsEnabled = true;
+        }
+
+        public void BHistory(object sender, RoutedEventArgs e)
+        {
+            Last10Inputs.Visibility = Visibility.Visible;
+            History.Visibility = Visibility.Visible;
+            ClearHistory.Visibility = Visibility.Visible;
+            
+            CurrentPatch.Visibility = Visibility.Hidden;
+            
+            CdaysGone.Visibility = Visibility.Hidden;
+            CdaysLeft.Visibility = Visibility.Hidden;
+            CBanner.Visibility = Visibility.Hidden;
+            
+            NPatch.Visibility = Visibility.Hidden;
+            FirstHalf.Visibility = Visibility.Hidden;
+            SecondHalf.Visibility = Visibility.Hidden;
+            
+            NNPatch.Visibility = Visibility.Hidden;
+            NFirstHalf.Visibility = Visibility.Hidden;
+            NSecondHalf.Visibility = Visibility.Hidden;
+
+            NNNPatch.Visibility = Visibility.Hidden;
+            NNFirstHalf.Visibility = Visibility.Hidden;
+            NNSecondHalf.Visibility = Visibility.Hidden;
+
+            RH1.Visibility = Visibility.Visible;
+            RH2.Visibility = Visibility.Hidden;
+
+            SomeUpcomingPatches.Foreground = Brushes.LightSkyBlue;
+            SomeUpcomingPatches.Background = Brushes.AliceBlue;
+            SomeUpcomingPatches.IsEnabled = true;
+
+            HHistory.Foreground = Brushes.Black;
+            HHistory.Background = Brushes.LightGray;
+            HHistory.IsEnabled = false;
+        }
+
+        #endregion
+
+        public void ClHistory(object sender, RoutedEventArgs e)
+        {
+            History.Content = "No Input yet";
+            HistoryClear = true;
         }
         #endregion
 
         #region Start()
         public void Start()
         {
+            AbyssStarsAllowed = false;
+            ExplorationInputAllowed = false;
+            DaysInputAllowed = false;
+
             string input1 = txtBox_anzAbyssStars.Text;
             try
             {
@@ -114,7 +191,6 @@ namespace Primogem_Calculator
                         else
                         {
                             AbyssStarsAllowed = true;
-                            SpotPatchPos(inputDays, ExplorationProgress);
                         }
                     }
                 }
@@ -148,7 +224,7 @@ namespace Primogem_Calculator
                     {
                         thirdError.Foreground = Brushes.Black;
                         thirdError.Content = $"% World Exploration progress expected";
-                        SpotPatchPos(inputDays, ExplorationProgress);
+                        ExplorationInputAllowed = true;
                     }
                 }
 
@@ -172,7 +248,7 @@ namespace Primogem_Calculator
                 }
                 else
                 {
-                    SpotPatchPos(inputDays, ExplorationProgress);
+                    DaysInputAllowed = true;
                 }
             }
             catch (FormatException)
@@ -180,7 +256,9 @@ namespace Primogem_Calculator
                 firstError.Foreground = Brushes.Red;
                 firstError.Content = $"Only use numbers";
                 inputDays = 0;
-            }          
+            }
+            if (AbyssStarsAllowed && ExplorationInputAllowed && DaysInputAllowed)
+                SpotPatchPos(inputDays, ExplorationProgress);
         }
         #endregion
 
@@ -237,6 +315,7 @@ namespace Primogem_Calculator
             int OldDay = 1;
             int OldMonth = 1;
             int OldYear = 2023;
+            int PatchesSince;
 
             int CDay = DateTime.Now.Day;        //current day
             int CMonth = DateTime.Now.Month;    //curent month
@@ -338,7 +417,9 @@ namespace Primogem_Calculator
             DaysBetween = ExtraDays + CDay - OldDay;
 
             newPatchPos = oldPatchPos + DaysBetween;
+            PatchesSince = newPatchPos / 42;
             newPatchPos = newPatchPos % 42;
+            PatchesPrediction(newPatchPos, PatchesSince);
             Calculation(ref days, newPatchPos, ExplorationProgress, Welkin, BP, AbyssStars);
         }
 
@@ -374,6 +455,8 @@ namespace Primogem_Calculator
             int AnzAnniversary = 0;
             int AnzLanternrite = 0;
 
+            bool OnlyOnce = true; //Bezug: September, in While-Schleife
+            bool OnlyOnceLR = true;
             //Price1.Content = $"{CMonth}, {CYear}"; //Output: 1, 2023 | Stand: 01.2023
 
             while (ToDay >= 29)
@@ -390,7 +473,6 @@ namespace Primogem_Calculator
                             AbyssResets = AbyssResets + 2;
                             ShopReset = ShopReset + 1;
                             TotalMonths = TotalMonths + 1;
-                            AnzLanternrite = AnzLanternrite + 1;
                         }
 
                         break;
@@ -408,6 +490,8 @@ namespace Primogem_Calculator
                                 AbyssResets = AbyssResets + 2;
                                 ShopReset = ShopReset + 1;
                                 TotalMonths = TotalMonths + 1;
+                                AnzLanternrite = AnzLanternrite + 1;
+                                OnlyOnceLR = false;
                             }
                         }
                         else                 //normales Jahr
@@ -421,6 +505,8 @@ namespace Primogem_Calculator
                                 AbyssResets = AbyssResets + 2;
                                 ShopReset = ShopReset + 1;
                                 TotalMonths = TotalMonths + 1;
+                                AnzLanternrite = AnzLanternrite + 1;
+                                OnlyOnceLR = false;
                             }
                         }
 
@@ -435,6 +521,7 @@ namespace Primogem_Calculator
                             AbyssResets = AbyssResets + 2;
                             ShopReset = ShopReset + 1;
                             TotalMonths = TotalMonths + 1;
+                            OnlyOnceLR = true;
                         }
 
                         break;
@@ -475,7 +562,7 @@ namespace Primogem_Calculator
                             ShopReset = ShopReset + 1;
                             TotalMonths = TotalMonths + 1;
                         }
-                     
+
                         break;
                     case 7:     //July
                         if (ToDay > 31)
@@ -500,10 +587,6 @@ namespace Primogem_Calculator
                             AbyssResets = AbyssResets + 2;
                             ShopReset = ShopReset + 1;
                             TotalMonths = TotalMonths + 1;
-                            if (ToDay >= 28)
-                            {
-                                AnzAnniversary = AnzAnniversary + 1;
-                            }
                         }
 
                         break;
@@ -517,6 +600,11 @@ namespace Primogem_Calculator
                             AbyssResets = AbyssResets + 2;
                             ShopReset = ShopReset + 1;
                             TotalMonths = TotalMonths + 1;
+                            if (CDay <= 28)
+                            {
+                                AnzAnniversary = AnzAnniversary + 1;
+                                OnlyOnce = false;
+                            }
                         }
 
                         break;
@@ -530,6 +618,7 @@ namespace Primogem_Calculator
                             AbyssResets = AbyssResets + 2;
                             ShopReset = ShopReset + 1;
                             TotalMonths = TotalMonths + 1;
+                            OnlyOnce = true;
                         }
                         break;
 
@@ -571,7 +660,15 @@ namespace Primogem_Calculator
                 }
             }
 
-            if (ToDay > 16)
+            if (ToMonth == 9 && ToDay >= 28 && OnlyOnce == true && CDay <= 28) //Anniversary Check [Besonderer Fall, im September]
+            {
+                AnzAnniversary = AnzAnniversary + 1;
+            }
+
+            if (ToMonth == 2 && OnlyOnceLR == true)
+                AnzLanternrite = AnzLanternrite + 1;
+
+            if (ToDay >= 16)
             {
                 AbyssResets = AbyssResets + 1;
             }
@@ -598,7 +695,7 @@ namespace Primogem_Calculator
             int AllBPPrimos = AllBPRewards.BPPrimos;
             int ExplorationPrimos = ExplorationRewards(ExplorationProgress);
             int CompensationStuff = CompensationRewards(PatchPos, inputdays);
-            
+
 
             int ShopWishes = ShopCalculation(TotalMonths);
 
@@ -613,6 +710,7 @@ namespace Primogem_Calculator
             TotalRewards(AllPrimos, AllWishes, TotalWishes, inputdays);
             TotalPrice(PatchPos, inputdays, Welkin, BP);
             DatePrinter(ToDay, NewMonth, NewYear, AbyssResets, AbyssStarsAllowed);
+            InputHistory(inputdays, TotalWishes);
         }
 
         //Dailies and Welkin
@@ -692,7 +790,7 @@ namespace Primogem_Calculator
                 BigEventsOver = 1;
                 if (PatchPos >= 35)
                 {
-                        SmallEventsOver = 4;
+                    SmallEventsOver = 3;
                 }
             }
             else
@@ -702,7 +800,7 @@ namespace Primogem_Calculator
             }
             if (CurrentPatchDays > 28)
             {
-                SmallEvents = 4 - SmallEventsOver;
+                SmallEvents = 3 - SmallEventsOver;
                 if (CurrentPatchDays > 35)
                 {
                     BigEvents = 1 - BigEventsOver;
@@ -712,8 +810,8 @@ namespace Primogem_Calculator
             {
                 if (CurrentPatchDays >= 7)
                 {
-                 SmallEvents = (CurrentPatchDays / 7) - SmallEventsOver;
-                 SmallEvents = SmallEvents - 1;
+                    SmallEvents = (CurrentPatchDays / 7) - SmallEventsOver;
+                    SmallEvents = SmallEvents - 1;
                 }
                 else
                 {
@@ -721,14 +819,14 @@ namespace Primogem_Calculator
                 }
             }
 
-            NewPatchDays =  OverPatchDays % 42;    //Tage die in den letzten erreichten Patch rein gehen
+            NewPatchDays = OverPatchDays % 42;    //Tage die in den letzten erreichten Patch rein gehen
 
-            int SmallEventPrimos = 0;
-            int BigEventPrimos = 0;
+            int SmallEventPrimos;
+            int BigEventPrimos;
 
             while (Patches > 0)
             {
-                SmallEvents = SmallEvents + 4;
+                SmallEvents = SmallEvents + 3;
                 BigEvents = BigEvents + 1;
                 Patches = Patches - 1;
             }
@@ -739,7 +837,7 @@ namespace Primogem_Calculator
                 {
                     if (NewPatchDays != 42)
                     {
-                        SmallEvents = SmallEvents + 4;
+                        SmallEvents = SmallEvents + 3;
                         BigEvents = BigEvents + 1;
                     }
                 }
@@ -754,11 +852,11 @@ namespace Primogem_Calculator
             }
 
             SmallEventPrimos = SmallEvents * 420;
-            BigEventPrimos = BigEvents * 1680;
+            BigEventPrimos = BigEvents * 1000;
 
             int AnniversaryPrimos = AnzAnniversary * 1600;
             int AnniversaryWishes = AnzAnniversary * 10;
-            int LanternriteWishes = AnzLanternrite * 15;
+            int LanternriteWishes = AnzLanternrite * 10;
             bool Festivals;
 
             if (AnniversaryPrimos > 0)
@@ -783,11 +881,19 @@ namespace Primogem_Calculator
                 {
                     HEvent.Content = "Events and Festivals";
                     Event.Content = $" + {BigEventPrimos} Primogems from {BigEvents} Big Events \n + {SmallEventPrimos} Primogems from {SmallEvents} Small Events\n + {AnniversaryPrimos} Primogems from {AnzAnniversary} Anniversary/s\n + {AnniversaryWishes} Intertwined Fates from {AnzAnniversary} Anniversary/s\n + {LanternriteWishes} Intertwined Fates from {AnzLanternrite} Lanternrite/s\n ____________________________________________________________________________________________ \n + {AnniversaryWishes + LanternriteWishes} Intertwined Fates | + {SmallEventPrimos + BigEventPrimos + AnniversaryPrimos} Primogems";
+                    NNPatch.Margin = new Thickness(10, 25, 20, 210);
+                    NFirstHalf.Margin = new Thickness(10, -190, 20, 50);
+                    NSecondHalf.Margin = new Thickness(10, -190, 20, 50);
+                    ClearHistory.Margin = new Thickness(10, 25, 20, 210);
                 }
                 else
                 {
                     HEvent.Content = "Events";
                     Event.Content = $" + {BigEventPrimos} Primogems from {BigEvents} Big Events \n + {SmallEventPrimos} Primogems from {SmallEvents} Small Events \n ____________________________________________________________________________________________ \n + {SmallEventPrimos + BigEventPrimos} Primogems";
+                    NNPatch.Margin = new Thickness(10, 25, 20, 120);
+                    NFirstHalf.Margin = new Thickness(10, -100, 20, 50);
+                    NSecondHalf.Margin = new Thickness(10, -100, 20, 50);
+                    ClearHistory.Margin = new Thickness(10, 25, 20, 120);
                 }
             }
             else
@@ -801,9 +907,9 @@ namespace Primogem_Calculator
         }
 
         //BattlePass       
-        (int BPWishes, int BPPrimos)BattlePassCalculation(int PatchPos, int inputdays, bool BP)
+        (int BPWishes, int BPPrimos) BattlePassCalculation(int PatchPos, int inputdays, bool BP)
         {
-            int BPWishes = 0;
+            int BPWishes;
             int BPPrimos = 0;
             int BPWishesGone;
             int PatchDaysLeft = 42 - PatchPos;                  //Tage, die der aktuelle Patch noch weiter geht
@@ -826,15 +932,17 @@ namespace Primogem_Calculator
                 Patches = 0;
                 NewPatchDay = 0;
             }
-            BPWishesGone = PatchPos / 7;
-            if (CurrentPatchDays >= 35)
+            BPWishesGone = PatchPos / 5;
+            if (BPWishesGone > 4)
+                BPWishesGone = 4;
+            if (CurrentPatchDays >= 25)
             {
                 BPWishes = 4 - BPWishesGone;
                 BPPrimos = 680;
             }
             else
             {
-                BPWishes = CurrentPatchDays / 7 - BPWishesGone;
+                BPWishes = CurrentPatchDays / 5 - BPWishesGone;
             }
             int PatchesLeft = Patches;
             while (PatchesLeft != 0)
@@ -845,14 +953,14 @@ namespace Primogem_Calculator
             }
             if (NewPatchDay > 0)
             {
-                if (NewPatchDay >= 35)
+                if (NewPatchDay >= 25)
                 {
                     BPWishes = BPWishes + 4;
                     BPPrimos = BPPrimos + 680;
                 }
                 else
                 {
-                    BPWishes = BPWishes + NewPatchDay / 7;
+                    BPWishes = BPWishes + NewPatchDay / 5;
                 }
             }
             if (BP)
@@ -890,7 +998,7 @@ namespace Primogem_Calculator
             {
                 OverPatchDays = inputdays - PatchDaysLeft - 1;     //Tage die nach dem aktuellen Patch noch über sind
                 Patches = OverPatchDays / 42 + 1;
-                CompensationPrimos = (Patches) * 600;
+                CompensationPrimos = Patches * 600;
             }
             else
             {
@@ -948,7 +1056,7 @@ namespace Primogem_Calculator
         }
 
         //Price
-        public void TotalPrice (int PatchPos, int inputdays, bool Welkin, bool BP)
+        public void TotalPrice(int PatchPos, int inputdays, bool Welkin, bool BP)
         {
             int PatchDaysLeft = 42 - PatchPos;                  //Tage, die der aktuelle Patch noch weiter geht
             int OverPatchDay;                                   //Tage die nach dem aktuellen Patch noch über sind
@@ -1017,6 +1125,194 @@ namespace Primogem_Calculator
             }
             firstError.Foreground = Brushes.Black;
             firstError.Content = $"Days | calculated for date: {ToDay}.{NewMonth}.{NewYear}";
+        }
+
+        //History
+        int[] DaysHistory = new int[999999];
+        int[] WishesHistory = new int[999999];
+        int DCounter = 0;
+        int Position = 0;
+        public void InputHistory(int inputdays, int TotalWishes)
+        {
+            History.Content = "No Input yet";
+            if (HistoryClear == true)
+            {
+                DCounter = 0;
+                /*for (int i = DCounter; i < 0; i--)
+                {
+                    DaysHistory[DCounter] = 0;
+                }*/
+                HistoryClear = false;
+            }
+            if (DCounter > 9)
+            {
+                foreach (int Day in DaysHistory)
+                {
+                    if (Position > 0)
+                    {
+                        DaysHistory[Position - 1] = Day;
+                    }
+                    Position = Position + 1;
+                }
+                DaysHistory[9] = inputdays;
+                Position = 0;
+            }
+            else
+                DaysHistory[DCounter] = inputdays;
+
+            WishesHistory[DCounter] = TotalWishes;
+            if (DCounter > 9)
+            {
+                foreach (int Wishes in WishesHistory)
+                {
+                    if (Position > 0)
+                    {
+                        WishesHistory[Position - 1] = Wishes;
+                    }
+                    Position = Position + 1;
+                }
+                Position = 0;
+                DCounter = 9;
+                WishesHistory[DCounter] = TotalWishes;
+            }
+
+            //Outputs
+            switch (DCounter)
+            {
+                case 0:
+                    History.Content = $"Days: {DaysHistory[0]} | Wishes: {WishesHistory[0]}";
+                    break;
+
+                case 1:
+                    History.Content = $"Days: {DaysHistory[1]} | Wishes: {WishesHistory[1]}\n\nDays: {DaysHistory[0]} | Wishes: {WishesHistory[0]}";
+                    break;
+
+                case 2:
+                    History.Content = $"Days: {DaysHistory[2]} | Wishes: {WishesHistory[2]}\n\nDays: {DaysHistory[1]} | Wishes: {WishesHistory[1]}\n\nDays: {DaysHistory[0]} | Wishes: {WishesHistory[0]}";
+                    break;
+
+                case 3:
+                    History.Content = $"Days: {DaysHistory[3]} | Wishes: {WishesHistory[3]}\n\nDays: {DaysHistory[2]} | Wishes: {WishesHistory[2]}\n\nDays: {DaysHistory[1]} | Wishes: {WishesHistory[1]}\n\nDays: {DaysHistory[0]} | Wishes: {WishesHistory[0]}";
+                    break;
+
+                case 4:
+                    History.Content = $"Days: {DaysHistory[4]} | Wishes: {WishesHistory[4]}\n\nDays: {DaysHistory[3]} | Wishes: {WishesHistory[3]}\n\nDays: {DaysHistory[2]} | Wishes: {WishesHistory[2]}\n\nDays: {DaysHistory[1]} | Wishes: {WishesHistory[1]}\n\nDays: {DaysHistory[0]} | Wishes: {WishesHistory[0]}";
+                    break;
+
+                case 5:
+                    History.Content = $"Days: {DaysHistory[5]} | Wishes: {WishesHistory[5]}\n\nDays: {DaysHistory[4]} | Wishes: {WishesHistory[4]}\n\nDays: {DaysHistory[3]} | Wishes: {WishesHistory[3]}\n\nDays: {DaysHistory[2]} | Wishes: {WishesHistory[2]}\n\nDays: {DaysHistory[1]} | Wishes: {WishesHistory[1]}\n\nDays: {DaysHistory[0]} | Wishes: {WishesHistory[0]}";
+                    break;
+
+                case 6:
+                    History.Content = $"Days: {DaysHistory[6]} | Wishes: {WishesHistory[6]}\n\nDays: {DaysHistory[5]} | Wishes: {WishesHistory[5]}\n\nDays: {DaysHistory[4]} | Wishes: {WishesHistory[4]}\n\nDays: {DaysHistory[3]} | Wishes: {WishesHistory[3]}\n\nDays: {DaysHistory[2]} | Wishes: {WishesHistory[2]}\n\nDays: {DaysHistory[1]} | Wishes: {WishesHistory[1]}\n\nDays: {DaysHistory[0]} | Wishes: {WishesHistory[0]}";
+                    break;
+
+                case 7:
+                    History.Content = $"Days: {DaysHistory[7]} | Wishes: {WishesHistory[7]}\n\nDays: {DaysHistory[6]} | Wishes: {WishesHistory[6]}\n\nDays: {DaysHistory[5]} | Wishes: {WishesHistory[5]}\n\nDays: {DaysHistory[4]} | Wishes: {WishesHistory[4]}\n\nDays: {DaysHistory[3]} | Wishes: {WishesHistory[3]}\n\nDays: {DaysHistory[2]} | Wishes: {WishesHistory[2]}\n\nDays: {DaysHistory[1]} | Wishes: {WishesHistory[1]}\n\nDays: {DaysHistory[0]} | Wishes: {WishesHistory[0]}";
+                    break;
+
+                case 8:
+                    History.Content = $"Days: {DaysHistory[8]} | Wishes: {WishesHistory[8]}\n\nDays: {DaysHistory[7]} | Wishes: {WishesHistory[7]}\n\nDays: {DaysHistory[6]} | Wishes: {WishesHistory[6]}\n\nDays: {DaysHistory[5]} | Wishes: {WishesHistory[5]}\n\nDays: {DaysHistory[4]} | Wishes: {WishesHistory[4]}\n\nDays: {DaysHistory[3]} | Wishes: {WishesHistory[3]}\n\nDays: {DaysHistory[2]} | Wishes: {WishesHistory[2]}\n\nDays: {DaysHistory[1]} | Wishes: {WishesHistory[1]}\n\nDays: {DaysHistory[0]} | Wishes: {WishesHistory[0]}";
+                    break;
+
+                case 9:
+                    History.Content = $"Days: {DaysHistory[9]} | Wishes: { WishesHistory[9]}\n\nDays: {DaysHistory[8]} | Wishes: {WishesHistory[8]}\n\nDays: {DaysHistory[7]} | Wishes: {WishesHistory[7]}\n\nDays: {DaysHistory[6]} | Wishes: {WishesHistory[6]}\n\nDays: {DaysHistory[5]} | Wishes: {WishesHistory[5]}\n\nDays: {DaysHistory[4]} | Wishes: {WishesHistory[4]}\n\nDays: {DaysHistory[3]} | Wishes: {WishesHistory[3]}\n\nDays: {DaysHistory[2]} | Wishes: {WishesHistory[2]}\n\nDays: {DaysHistory[1]} | Wishes: {WishesHistory[1]}\n\nDays: {DaysHistory[0]} | Wishes: {WishesHistory[0]}";
+                    break;
+            }
+            DCounter = DCounter + 1;
+        }
+
+        //Patches
+        public void PatchesPrediction(int PatchPos, int PatchesSince)
+        {
+            PatchPos = PatchPos - 1;
+
+            int OldBigPatch = 3;
+            int OldSmallPatch = 3;
+            int TodayPatch;
+
+            int CDaysGone = PatchPos;
+            int CDaysLeft = 42 - CDaysGone;
+
+            int NewBigPatch = OldBigPatch;
+            int NewSmallPatch = OldSmallPatch;
+
+            TodayPatch = OldSmallPatch + PatchesSince;
+            if (TodayPatch > 8)
+            {
+                NewBigPatch = OldBigPatch + TodayPatch / 9;
+                NewSmallPatch = TodayPatch % 9;
+            }
+            else
+            {
+                NewSmallPatch = TodayPatch;
+            }
+            if (PatchPos < 21)
+                CBanner.Content = $"           First Half\nDays until next Banner: {20 - CDaysGone}";
+            if (PatchPos >= 21 && PatchPos <= 40)
+                CBanner.Content = $"           Second Half\n        Ends in {42 - CDaysGone} Days\n\nDays until next Banner: {42 - CDaysGone}";
+            if (PatchPos > 40)
+            {
+                CBanner.Content = $"            No Banner\nDays until next Banner: 1";
+            }
+
+            CurrentPatch.Content = $"             Current Patch: {NewBigPatch}.{NewSmallPatch}             ";
+            CdaysGone.Content = $"Since: {CDaysGone} Days";
+            CdaysLeft.Content = $"Banner Left: {CDaysLeft - 1} Days";
+
+
+            //Repeat
+
+            int DaysUntilNextPatch;
+
+            if (NewSmallPatch == 8)
+            {
+                NewSmallPatch = 0;
+                NewBigPatch = NewBigPatch + 1;
+            }
+            else
+            {
+                NewSmallPatch = NewSmallPatch + 1;
+            }
+            DaysUntilNextPatch = CDaysLeft;
+
+            NPatch.Content = $"            Upcoming Patch: {NewBigPatch}.{NewSmallPatch}            ";
+            FirstHalf.Content = $"First Half starts in {DaysUntilNextPatch} Days\n";
+            SecondHalf.Content = $"Second Half starts in {DaysUntilNextPatch + 20} Days";
+
+            //Repeat
+
+            if (NewSmallPatch == 8)
+            {
+                NewSmallPatch = 0;
+                NewBigPatch = NewBigPatch + 1;
+            }
+            else
+            {
+                NewSmallPatch = NewSmallPatch + 1;
+            }
+            DaysUntilNextPatch = DaysUntilNextPatch + 42;
+
+            NNPatch.Content = $"            Upcoming Patch: {NewBigPatch}.{NewSmallPatch}            ";
+            NFirstHalf.Content = $"First Half starts in {DaysUntilNextPatch} Days\n";
+            NSecondHalf.Content = $"Second Half starts in {DaysUntilNextPatch + 20} Days";
+
+            //Repeat
+
+            if (NewSmallPatch == 8)
+            {
+                NewSmallPatch = 0;
+                NewBigPatch = NewBigPatch + 1;
+            }
+            else
+            {
+                NewSmallPatch = NewSmallPatch + 1;
+            }
+            DaysUntilNextPatch = DaysUntilNextPatch + 42;
+
+            NNNPatch.Content = $"            Upcoming Patch: {NewBigPatch}.{NewSmallPatch}            ";
+            NNFirstHalf.Content = $"First Half starts in {DaysUntilNextPatch} Days\n";
+            NNSecondHalf.Content = $"Second Half starts in {DaysUntilNextPatch + 20} Days";
         }
 
         #endregion
