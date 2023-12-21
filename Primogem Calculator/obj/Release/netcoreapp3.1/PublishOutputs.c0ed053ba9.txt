@@ -1,0 +1,5 @@
+C:\Users\Milan\source\Primogem Calculator\Primogem Calculator\bin\Release\netcoreapp3.1\publish\Primogem Calculator.exe
+C:\Users\Milan\source\Primogem Calculator\Primogem Calculator\bin\Release\netcoreapp3.1\publish\Primogem Calculator.dll
+C:\Users\Milan\source\Primogem Calculator\Primogem Calculator\bin\Release\netcoreapp3.1\publish\Primogem Calculator.deps.json
+C:\Users\Milan\source\Primogem Calculator\Primogem Calculator\bin\Release\netcoreapp3.1\publish\Primogem Calculator.runtimeconfig.json
+C:\Users\Milan\source\Primogem Calculator\Primogem Calculator\bin\Release\netcoreapp3.1\publish\Primogem Calculator.pdb
